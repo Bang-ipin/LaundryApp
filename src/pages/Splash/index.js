@@ -1,14 +1,31 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, {useEffect} from 'react';
+import {ImageBackground, StyleSheet, Image} from 'react-native';
+import {Logo, SplashBackground} from '../../assets';
 
-const Splash = () => {
-    return (
-        <View>
-            <Text>Splash Screen</Text>
-        </View>
-    )
-}
+const Splash = ({navigation}) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace('MainApp');
+    }, 3000);
+  }, [navigation]);
 
-export default Splash
+  return (
+    <ImageBackground source={SplashBackground} style={styles.background}>
+      <Image source={Logo} style={styles.Logo}></Image>
+    </ImageBackground>
+  );
+};
 
-const styles = StyleSheet.create({})
+export default Splash;
+
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  Logo: {
+    width: 222,
+    height: 105,
+  },
+});

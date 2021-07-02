@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {ImageBackground, StyleSheet, Image} from 'react-native';
 import {Logo, SplashBackground} from '../../assets';
 

@@ -1,29 +1,44 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  ImageBackground,
+  Dimensions,
+  Image,
+} from 'react-native';
+import {ImageHeader, Logo} from '../../assets';
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.red}>Ini React Native</Text>
-      <Text style={styles.bigBlue}>Ini Juga React Native</Text>
-      <Text style={[styles.bigBlue, styles.red]}>Ini React Native Juga</Text>
-      <Text style={[styles.red, styles.bigBlue]}>red, then bigBlue</Text>
+    <View style={styles.page}>
+      <ImageBackground source={ImageHeader} style={styles.header}>
+        <Image source={Logo} style={styles.Logo} />
+        <Text> Selamat Datang </Text>
+        <Text> Ervin Santoso </Text>
+      </ImageBackground>
     </View>
   );
 };
 
 export default Home;
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 0,
+  page: {
+    flex: 1,
   },
-  bigBlue: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30,
+  header: {
+    width: windowWidth,
+    height: windowHeight * 0.3,
+    paddingHorizontal:20,
+    paddingTop:10
   },
-  red: {
-    color: 'red',fontSize: 20,
-  },
+  Logo:{
+    width:windowWidth * 0.3,
+    height:windowHeight * 0.06,
+    marginBottom:10
+  }
 });
